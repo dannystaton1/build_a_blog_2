@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Add a Blog Entry!</h1>
+    
+    <h3>Please make sure all fields are completed!</h3>
+    {% endif %}
+
+     <form method='post' action="/newpost">
+
+        <label for="title">Title for your new blog:</label><br/>
+	    <input type="text" id="title" name='title' value="{{blogTitle}}"/><br/>
+	  
+
+	    <label for="body">Your new blog:</label><br/>
+        <textarea id="body" name='body' />{{blogBody}}</textarea><br/>
+        
+        
+        <input type="submit" value='Add Entry' />
+    </form>
+
+
+{% endblock %}
