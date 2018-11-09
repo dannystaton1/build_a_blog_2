@@ -2,12 +2,10 @@ from flask import Flask, request, redirect, render_template,session
 import cgi
 import os
 from flask_sqlalchemy import SQLAlchemy
-import jinja2 
+ 
 
 
 
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
 
 
 
@@ -50,15 +48,18 @@ def newpost():
     else:
 	    title = request.form ['title']
 	    content = request.form ['content']
-
-            return render_template ('newpost.html',title="Add a Blog Entry",blogTitle=title, blogBody=content)
-
-    blog = Blog(title=title, content=content)	
+    
+    
+    blog = Blog(title=title,  content=content())	
         
 		
+        
     db.session.add(blog)
     db.session.commit()
 		
-return redirect('/blog?id=' + str(blog.id))
+    return redirect('/blog?id=' + str(blog.id))
 
-app.run()
+
+
+if __name__ == '__main__':
+    app.run()
