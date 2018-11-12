@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+      
+		<style>
+			#title { text-align: center; }
+		</style>
+    </head>
+    
+	<body>
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+			<div class="container">
+				<a class="navbar-brand" href="/blog">Main Blog Page</a>
+				<a class="navbar-brand" href="/newpost">Add a Blog Entry</a>
+			</div>
+		</nav>
+			
+		<div class="container">
+			<h1 id="title"><br/>{{title}}</h1>
+
+			{% block content %}
+			{% endblock %}
+		</div>
+
+		
+		
+	</body>
+</html>
